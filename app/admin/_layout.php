@@ -57,7 +57,7 @@ $flash = takeFlash();
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="<?php echo APP_URL; ?>/assets/css/admin.css?v=3">
+<link rel="stylesheet" href="<?php echo APP_BASE; ?>/assets/css/admin.css?v=3">
 </head>
 <body>
 <div class="admin-shell">

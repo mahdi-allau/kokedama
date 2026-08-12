@@ -33,6 +33,10 @@ Options -Indexes
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # File statici: servili direttamente (CSS, JS, immagini, font)
+  RewriteCond %{REQUEST_URI} \.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ [NC]
+  RewriteRule ^ - [L]
+
   # Le cartelle interne non sono pagine del sito: si passa sempre dal router
   RewriteRule ^(includes|templates|pages)/ - [F,L]
 
