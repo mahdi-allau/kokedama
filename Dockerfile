@@ -12,7 +12,8 @@ RUN docker-php-ext-install pdo_sqlite 2>/dev/null || true
 COPY app/ /var/www/html/
 
 # 4. Permessi: Apache deve poter leggere tutto e scrivere il database SQLite
-RUN chown -R www-data:www-data /var/www/html \
+RUN mkdir -p /var/www/html/assets/uploads \
+    && chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html \
     && chmod 664 /var/www/html/database.sqlite \
     && chmod 775 /var/www/html/assets/uploads
