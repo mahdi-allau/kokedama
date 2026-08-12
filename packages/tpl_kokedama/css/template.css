@@ -1,0 +1,356 @@
+/**
+ * Kokedama Template Styles
+ * Natural, elegant, responsive
+ */
+
+/* ===== Variables ===== */
+:root {
+  --koke-green: #5B7B5B;
+  --koke-green-dark: #3D5A3D;
+  --koke-green-light: #E8F0E8;
+  --koke-terracotta: #C67B5C;
+  --koke-terracotta-dark: #A55D3F;
+  --koke-sand: #F5F0E8;
+  --koke-cream: #FAFAF5;
+  --koke-brown: #8B6F47;
+  --koke-dark: #2C3E2C;
+  --koke-text: #4A4A45;
+  --koke-text-light: #6B6B65;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ===== Base ===== */
+body {
+  font-family: var(--font-body);
+  color: var(--koke-text);
+  background-color: var(--koke-cream);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+  font-family: var(--font-heading);
+  color: var(--koke-dark);
+  font-weight: 500;
+}
+
+a {
+  color: var(--koke-green);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--koke-green-dark);
+}
+
+/* ===== Navbar ===== */
+.navbar-kokedama {
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.navbar-kokedama .navbar-brand {
+  color: var(--koke-dark);
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.navbar-kokedama .brand-text {
+  color: var(--koke-green);
+}
+
+.navbar-kokedama .brand-sub {
+  color: var(--koke-text-light);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.navbar-kokedama .nav-link {
+  color: var(--koke-text);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  position: relative;
+}
+
+.navbar-kokedama .nav-link:hover,
+.navbar-kokedama .nav-link.active {
+  color: var(--koke-green);
+}
+
+.navbar-kokedama .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  right: 1rem;
+  height: 2px;
+  background-color: var(--koke-green);
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+
+.navbar-kokedama .nav-link:hover::after,
+.navbar-kokedama .nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.nav-phone {
+  color: var(--koke-green);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* ===== Buttons ===== */
+.btn-kokedama {
+  background-color: var(--koke-green);
+  border-color: var(--koke-green);
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  padding: 0.6rem 1.5rem;
+  transition: all 0.25s ease;
+}
+
+.btn-kokedama:hover,
+.btn-kokedama:focus {
+  background-color: var(--koke-green-dark);
+  border-color: var(--koke-green-dark);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(91,123,91,0.25);
+}
+
+.btn-outline-kokedama {
+  border-color: var(--koke-green);
+  color: var(--koke-green);
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.btn-outline-kokedama:hover {
+  background-color: var(--koke-green);
+  color: #fff;
+}
+
+/* ===== Cards ===== */
+.service-card,
+.project-card,
+.event-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+}
+
+.service-card:hover,
+.project-card:hover,
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08) !important;
+}
+
+.service-card .card-img-top,
+.project-card .card-img-top,
+.event-card .card-img-top {
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.service-card:hover .card-img-top,
+.project-card:hover .card-img-top,
+.event-card:hover .card-img-top {
+  transform: scale(1.03);
+}
+
+/* ===== Badges ===== */
+.bg-kokedama {
+  background-color: var(--koke-green) !important;
+}
+
+.bg-kokedama-light {
+  background-color: var(--koke-green-light) !important;
+}
+
+.text-kokedama {
+  color: var(--koke-green) !important;
+}
+
+.text-kokedama-dark {
+  color: var(--koke-dark) !important;
+}
+
+/* ===== Hero ===== */
+.hero-section {
+  background: linear-gradient(135deg, var(--koke-green-light) 0%, var(--koke-sand) 100%);
+  padding: 5rem 0;
+}
+
+/* ===== Main Content ===== */
+.main-content {
+  min-height: 60vh;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  background-color: var(--koke-dark);
+  color: rgba(255,255,255,0.75);
+}
+
+.footer-widgets {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-bottom {
+  background-color: rgba(0,0,0,0.15);
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.1);
+  color: #fff;
+  margin-left: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.social-links a:hover {
+  background-color: var(--koke-green);
+  color: #fff;
+}
+
+/* ===== Cookie Banner ===== */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--koke-dark);
+  color: #fff;
+  padding: 1rem 0;
+  z-index: 9999;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+}
+
+.cookie-banner a {
+  color: var(--koke-green-light);
+}
+
+/* ===== Back to Top ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 44px;
+  height: 44px;
+  background-color: var(--koke-green);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(91,123,91,0.3);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background-color: var(--koke-green-dark);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* ===== Gallery Lightbox ===== */
+.gallery-item {
+  display: block;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.gallery-item img {
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* ===== Forms ===== */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--koke-green);
+  box-shadow: 0 0 0 0.2rem rgba(91,123,91,0.15);
+}
+
+/* ===== Alerts ===== */
+.alert-info {
+  background-color: var(--koke-green-light);
+  border-color: var(--koke-green);
+  color: var(--koke-green-dark);
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.service-card,
+.project-card,
+.event-card {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 991.98px) {
+  .navbar-kokedama .navbar-collapse {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  }
+
+  .hero-section {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .display-4 {
+    font-size: 2rem;
+  }
+
+  .service-card .card-img-top,
+  .project-card .card-img-top,
+  .event-card .card-img-top {
+    height: 180px;
+  }
+}

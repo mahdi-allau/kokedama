@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="4.0" client="site" method="upgrade">
+	<name>Servizi in evidenza — Kokedama</name>
+	<author>Kokedama Sculture Naturali</author>
+	<creationDate>August 2026</creationDate>
+	<copyright>Copyright (C) 2026</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<version>1.0.0</version>
+	<description>Mostra i servizi in evidenza del componente Kokedama.</description>
+	<files>
+		<filename module="mod_kokedama_services">mod_kokedama_services.php</filename>
+		<filename>helper.php</filename>
+		<folder>tmpl</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="count" type="number" default="3" label="Numero servizi" />
+				<field name="show_price" type="radio" default="1" label="Mostra prezzo" class="btn-group btn-group-yesno">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

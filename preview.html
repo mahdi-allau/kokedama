@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anteprima design — Kokedama &amp; Sculture Naturali</title>
+
+<!--
+  Anteprima statica del sito pubblico.
+  Carica direttamente app/assets/css/style.css: qualsiasi modifica al CSS
+  si vede subito qui, senza bisogno di PHP.
+  Apri questo file nel browser per valutare il design.
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="app/assets/css/style.css">
+<style>
+  .preview-bar {
+    background: #1A2A1F; color: #fff; padding: .9rem 1.5rem; text-align: center;
+    font-family: 'Jost', sans-serif; font-size: .85rem; letter-spacing: .12em; text-transform: uppercase;
+  }
+  .preview-bar a { color: #E7B9A6; }
+</style>
+</head>
+<body>
+
+<div class="preview-bar">
+  Anteprima design · sito pubblico — <a href="preview-admin.html">vedi il pannello di gestione &rarr;</a>
+</div>
+
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-items">
+      <span><i class="fas fa-map-marker-alt"></i> Piazza della Repubblica 11, 44121 Ferrara</span>
+      <span><i class="far fa-clock"></i> Oggi: 9:30 - 13:00 / 15:30 - 19:30</span>
+    </div>
+    <div class="topbar-items">
+      <a href="#"><i class="fas fa-phone"></i> 0532 242503</a>
+      <div class="topbar-social">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar scrolled">
+  <div class="container">
+    <a href="#" class="navbar-brand">
+      <span class="brand-mark"><i class="fas fa-leaf"></i></span>
+      <span class="brand-text">
+        <span class="brand-name">Kokedama</span>
+        <span class="brand-sub">Sculture Naturali</span>
+      </span>
+    </a>
+    <ul class="navbar-nav">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">Chi siamo</a></li>
+      <li><a href="#">Servizi</a></li>
+      <li><a href="#">Progetti</a></li>
+      <li><a href="#">Galleria</a></li>
+      <li><a href="#">Eventi</a></li>
+      <li><a href="#">Contatti</a></li>
+      <li class="nav-cta"><a href="#" class="btn btn-kokedama btn-sm"><i class="fas fa-calendar-check"></i> Prenota</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Apri il menu" aria-expanded="false"><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-drawer" id="mobileDrawer">
+  <nav>
+    <a href="#" class="active">Home<i class="fas fa-arrow-right"></i></a>
+    <a href="#">Chi siamo<i class="fas fa-arrow-right"></i></a>
+    <a href="#">Servizi<i class="fas fa-arrow-right"></i></a>
+    <a href="#">Progetti<i class="fas fa-arrow-right"></i></a>
+    <a href="#">Galleria<i class="fas fa-arrow-right"></i></a>
+    <a href="#">Eventi<i class="fas fa-arrow-right"></i></a>
+    <a href="#">Contatti<i class="fas fa-arrow-right"></i></a>
+  </nav>
+  <div class="drawer-footer">
+    <a href="#" class="btn btn-kokedama btn-lg btn-block"><i class="fas fa-calendar-check"></i> Prenota ora</a>
+    <a href="#" class="btn btn-ghost btn-block"><i class="fab fa-whatsapp"></i> Scrivici su WhatsApp</a>
+    <div class="drawer-contact">
+      <a href="#"><i class="fas fa-phone"></i> 0532 242503</a>
+      <span><i class="fas fa-map-marker-alt"></i> Piazza della Repubblica 11, 44121 Ferrara</span>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<!-- ============================== HERO ============================== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <span class="eyebrow">Atelier botanico · Ferrara</span>
+        <h1 class="display-1">Sculture naturali fatte a mano</h1>
+        <p class="lead">Kokedama, composizioni vegetali e workshop creativi nel cuore di Ferrara.
+          Ogni creazione è un pezzo unico, nato dalle mani e dalla terra.</p>
+        <div class="hero-buttons">
+          <a href="#" class="btn btn-kokedama btn-lg"><i class="fas fa-calendar-check"></i> Prenota un workshop</a>
+          <a href="#" class="btn btn-ghost btn-lg btn-arrow">Scopri i servizi <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="hero-trust">
+          <span class="hero-trust-item"><i class="fas fa-hand-holding-heart"></i> <span><strong>100%</strong> fatto a mano</span></span>
+          <span class="hero-trust-item"><i class="fas fa-users"></i> <span><strong>Piccoli gruppi</strong>, max 8 persone</span></span>
+          <span class="hero-trust-item"><i class="fas fa-seedling"></i> <span><strong>Materiali</strong> naturali</span></span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-frame"><span class="media-placeholder"><i class="fas fa-spa"></i></span></div>
+        <div class="hero-badge">
+          <i class="fas fa-star"></i>
+          <div><strong>Laboratorio artigiano</strong><small>Piazza della Repubblica 11, Ferrara</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SERVIZI ============================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <span class="eyebrow eyebrow--center">Cosa offriamo</span>
+      <h2 class="display-3">I nostri servizi</h2>
+      <p>Creazioni su misura e laboratori pratici, per chi vuole portarsi a casa un pezzo di natura.</p>
+    </div>
+    <div class="row">
+
+      <article class="card">
+        <div class="card-media">
+          <span class="media-placeholder"><i class="fas fa-spa"></i></span>
+          <span class="card-media-tag">60 min</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title"><a href="#">Kokedama classica</a></h3>
+          <p class="card-text">Creazione artigianale con la pianta che preferisci, montata su sfera di muschio.</p>
+          <div class="card-meta">
+            <span class="price">€ 35</span>
+            <span class="btn btn-outline-kokedama btn-sm btn-arrow">Dettagli <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media">
+          <span class="media-placeholder"><i class="fas fa-spa"></i></span>
+          <span class="card-media-tag">90 min</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title"><a href="#">Kokedama sospesa</a></h3>
+          <p class="card-text">Pensata per essere appesa: un piccolo giardino che galleggia nella stanza.</p>
+          <div class="card-meta">
+            <span class="price">€ 45</span>
+            <span class="btn btn-outline-kokedama btn-sm btn-arrow">Dettagli <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media">
+          <span class="media-placeholder"><i class="fas fa-spa"></i></span>
+          <span class="card-media-tag card-media-tag--clay">Più richiesto</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title"><a href="#">Laboratorio kokedama</a></h3>
+          <p class="card-text">Workshop pratico per imparare la tecnica e portare a casa la tua creazione.</p>
+          <div class="card-meta">
+            <span class="price">€ 55</span>
+            <span class="btn btn-outline-kokedama btn-sm btn-arrow">Dettagli <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+    <div class="text-center mt-5">
+      <a href="#" class="btn btn-kokedama btn-arrow">Vedi tutti i servizi <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== COME FUNZIONA ========================= -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <span class="eyebrow eyebrow--center">Semplice</span>
+      <h2 class="display-3">Come funziona</h2>
+      <p>Dalla richiesta alla tua creazione, in tre passaggi.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Scegli</h3><p>Sfoglia i servizi e i workshop in calendario. Non sai cosa fa per te? Scrivici, ti consigliamo noi.</p></div>
+      <div class="step"><h3>Prenota</h3><p>Compila il modulo in un minuto. Ti rispondiamo entro 24 ore con la conferma e tutti i dettagli.</p></div>
+      <div class="step"><h3>Crea</h3><p>Ti aspettiamo in atelier a Ferrara. Materiali inclusi: tu porti solo la voglia di sporcarti le mani.</p></div>
+    </div>
+    <div class="text-center mt-5">
+      <a href="#" class="btn btn-kokedama btn-lg"><i class="fas fa-calendar-check"></i> Inizia da qui</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== PERCHÉ NOI =========================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <span class="eyebrow eyebrow--center">Il nostro modo di lavorare</span>
+      <h2 class="display-3">Perché sceglierci</h2>
+      <p>L'arte botanica giapponese incontra la cura artigianale italiana.</p>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-image">
+        <div class="feature-image-inner"><span class="media-placeholder"><i class="fas fa-hand-holding-heart"></i></span></div>
+      </div>
+      <div class="feature-content">
+        <h3>Ogni pezzo è unico</h3>
+        <p>Ogni kokedama nasce interamente a mano, con tecniche tradizionali giapponesi. Nessuna creazione è uguale all'altra: la forma segue la pianta, non uno stampo.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check"></i> Tecniche giapponesi autentiche</li>
+          <li><i class="fas fa-check"></i> Muschi e terricci selezionati</li>
+          <li><i class="fas fa-check"></i> Personalizzabile su richiesta</li>
+        </ul>
+        <a href="#" class="btn btn-outline-kokedama btn-arrow">Guarda i progetti <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="feature-row reverse">
+      <div class="feature-image">
+        <div class="feature-image-inner"><span class="media-placeholder"><i class="fas fa-seedling"></i></span></div>
+      </div>
+      <div class="feature-content">
+        <h3>Workshop per veri principianti</h3>
+        <p>Non serve alcuna esperienza. Lavoriamo in piccoli gruppi, con calma, e ognuno esce con la propria kokedama e le istruzioni per tenerla viva a lungo.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check"></i> Tutti i materiali inclusi</li>
+          <li><i class="fas fa-check"></i> Massimo 8 partecipanti</li>
+          <li><i class="fas fa-check"></i> Ideale per coppie, gruppi e team building</li>
+        </ul>
+        <a href="#" class="btn btn-outline-kokedama btn-arrow">Vedi il calendario <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= NUMERI ============================= -->
+<section class="section bg-green">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <span class="eyebrow eyebrow--center">Dal 2018</span>
+      <h2 class="display-3">Kokedama in numeri</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-number">500+</div><div class="stat-label">Kokedama create</div></div>
+      <div class="stat-item"><div class="stat-number">120+</div><div class="stat-label">Workshop tenuti</div></div>
+      <div class="stat-item"><div class="stat-number">8</div><div class="stat-label">Anni di esperienza</div></div>
+      <div class="stat-item"><div class="stat-number">4,9</div><div class="stat-label">Valutazione media</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= EVENTI ============================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <span class="eyebrow eyebrow--center">Calendario</span>
+      <h2 class="display-3">Prossimi appuntamenti</h2>
+      <p>I posti sono limitati: si prenota in ordine di arrivo.</p>
+    </div>
+    <div class="row">
+
+      <article class="card">
+        <div class="card-media">
+          <span class="media-placeholder"><i class="fas fa-calendar-day"></i></span>
+          <span class="card-media-tag card-media-tag--clay">Fra 3 giorni</span>
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center gap-2">
+            <span class="badge badge-light">Workshop</span>
+            <span class="price">€ 55<small> / persona</small></span>
+          </div>
+          <h3 class="card-title"><a href="#">Workshop kokedama base</a></h3>
+          <p class="meta-line"><i class="far fa-calendar"></i> Sabato 30 agosto 2026</p>
+          <p class="meta-line"><i class="far fa-clock"></i> 15:00 – 17:30</p>
+          <div class="card-meta">
+            <span class="meta-line"><i class="fas fa-users"></i> Max 8 posti</span>
+            <span class="btn btn-outline-kokedama btn-sm btn-arrow">Prenota <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><span class="media-placeholder"><i class="fas fa-calendar-day"></i></span></div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center gap-2">
+            <span class="badge badge-light">Evento</span>
+            <span class="price">€ 45<small> / persona</small></span>
+          </div>
+          <h3 class="card-title"><a href="#">Kokedama e aperitivo</a></h3>
+          <p class="meta-line"><i class="far fa-calendar"></i> Venerdì 5 settembre 2026</p>
+          <p class="meta-line"><i class="far fa-clock"></i> 18:30 – 21:00</p>
+          <div class="card-meta">
+            <span class="meta-line"><i class="fas fa-users"></i> Max 12 posti</span>
+            <span class="btn btn-outline-kokedama btn-sm btn-arrow">Prenota <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-media"><span class="media-placeholder"><i class="fas fa-calendar-day"></i></span></div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center gap-2">
+            <span class="badge badge-light">Corso</span>
+            <span class="price">€ 90<small> / persona</small></span>
+          </div>
+          <h3 class="card-title"><a href="#">Corso avanzato terrari</a></h3>
+          <p class="meta-line"><i class="far fa-calendar"></i> Sabato 20 settembre 2026</p>
+          <p class="meta-line"><i class="far fa-clock"></i> 16:00 – 19:00</p>
+          <div class="card-meta">
+            <span class="meta-line"><i class="fas fa-users"></i> Max 6 posti</span>
+            <span class="btn btn-outline-kokedama btn-sm btn-arrow">Prenota <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================ GALLERIA ============================ -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <span class="eyebrow eyebrow--center">Dall'atelier</span>
+      <h2 class="display-3">Uno sguardo al lavoro</h2>
+    </div>
+    <div class="filter-bar">
+      <button class="filter-chip is-active">Tutte <span style="opacity:.6">(24)</span></button>
+      <button class="filter-chip">Kokedama <span style="opacity:.6">(12)</span></button>
+      <button class="filter-chip">Workshop <span style="opacity:.6">(7)</span></button>
+      <button class="filter-chip">Atelier <span style="opacity:.6">(5)</span></button>
+    </div>
+    <div class="gallery-grid">
+      <figure class="gallery-item"><span class="media-placeholder"><i class="fas fa-image"></i></span><figcaption>Kokedama con felce</figcaption></figure>
+      <figure class="gallery-item"><span class="media-placeholder"><i class="fas fa-image"></i></span><figcaption>Giardino sospeso</figcaption></figure>
+      <figure class="gallery-item"><span class="media-placeholder"><i class="fas fa-image"></i></span><figcaption>Workshop in corso</figcaption></figure>
+      <figure class="gallery-item"><span class="media-placeholder"><i class="fas fa-image"></i></span><figcaption>Dettaglio muschio</figcaption></figure>
+      <figure class="gallery-item"><span class="media-placeholder"><i class="fas fa-image"></i></span><figcaption>L'atelier a Ferrara</figcaption></figure>
+      <figure class="gallery-item"><span class="media-placeholder"><i class="fas fa-image"></i></span><figcaption>Centrotavola evento</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== TESTIMONIANZE ========================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <span class="eyebrow eyebrow--center">Recensioni</span>
+      <h2 class="display-3">Cosa dicono di noi</h2>
+    </div>
+    <div class="grid-3">
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Ho partecipato al workshop per il compleanno di mia sorella. Un'esperienza magica: Simona è paziente e appassionata. Siamo tornate a casa con due meraviglie verdi.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MG</div>
+          <div><strong>Martina G.</strong><small>Ferrara</small></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Ho regalato una kokedama a mia madre per la Festa della Mamma. Confezione curatissima e pianta stupenda: dopo due mesi è ancora rigogliosa.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">LB</div>
+          <div><strong>Luca B.</strong><small>Bologna</small></div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Team building aziendale organizzato con Simona: colleghi entusiasti. Un'attività originale che unisce creatività, natura e relax. Da rifare!</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">AR</div>
+          <div><strong>Alice R.</strong><small>HR — Ferrara</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CTA =============================== -->
+<section class="section section--tight">
+  <div class="container">
+    <div class="cta-band">
+      <h2 class="display-3">Pronto a creare la tua kokedama?</h2>
+      <p class="lead">Prenota un workshop o ordina la tua scultura vegetale su misura. Ti aspettiamo in Piazza della Repubblica 11.</p>
+      <div class="cta-buttons">
+        <a href="#" class="btn btn-white btn-lg"><i class="fas fa-calendar-check"></i> Prenota ora</a>
+        <a href="#" class="btn btn-outline-white btn-lg"><i class="fab fa-whatsapp"></i> Scrivici su WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== PRENOTAZIONE ========================= -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="section-header section-header--center">
+      <span class="eyebrow eyebrow--center">Richiesta</span>
+      <h2 class="display-3">Modulo di prenotazione</h2>
+    </div>
+    <div class="contact-grid" style="grid-template-columns:1.4fr .6fr">
+      <div class="booking-form">
+        <div class="form-group">
+          <label class="form-label">Cosa vuoi prenotare? <span class="req">*</span></label>
+          <div class="choice-group">
+            <label class="choice"><input type="radio" name="t" checked> <i class="fas fa-spa"></i> Un servizio</label>
+            <label class="choice"><input type="radio" name="t"> <i class="fas fa-calendar-day"></i> Un evento in calendario</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Servizio <span class="req">*</span></label>
+          <select class="form-control form-select">
+            <option>Kokedama classica — € 35</option>
+            <option>Kokedama sospesa — € 45</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Data preferita <span class="req">*</span></label>
+            <input type="date" class="form-control">
+            <p class="form-hint">Con almeno 2 giorni di anticipo.</p>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Orario preferito</label>
+            <input type="time" class="form-control">
+            <p class="form-hint">Facoltativo: se lasci vuoto, proponiamo noi.</p>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Nome <span class="req">*</span></label><input class="form-control" value="Giulia"></div>
+          <div class="form-group"><label class="form-label">Cognome <span class="req">*</span></label><input class="form-control" value="Rossi"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Note o richieste particolari</label>
+          <textarea class="form-control" rows="3" placeholder="Es. è un regalo, siamo un gruppo di colleghi, ho un'allergia…"></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-check"><input type="checkbox" checked><span>Ho letto e accetto l'informativa privacy. <span class="req">*</span></span></label>
+        </div>
+        <button class="btn btn-kokedama btn-lg btn-block"><i class="fas fa-paper-plane"></i> Invia richiesta</button>
+        <p class="form-hint text-center mt-2">Non è richiesto alcun pagamento in questa fase.</p>
+      </div>
+      <aside>
+        <div class="form-aside">
+          <h4>Come procediamo</h4>
+          <ul>
+            <li><i class="fas fa-paper-plane"></i><span>Invii la richiesta: <strong>non è un impegno</strong>.</span></li>
+            <li><i class="fas fa-reply"></i><span>Ti rispondiamo <strong>entro 24 ore</strong> con la conferma.</span></li>
+            <li><i class="fas fa-euro-sign"></i><span>Si salda in atelier, il giorno stesso.</span></li>
+            <li><i class="fas fa-rotate-left"></i><span>Puoi disdire fino a 48 ore prima.</span></li>
+          </ul>
+          <div style="margin-top:1.75rem;padding-top:1.25rem;border-top:1px solid var(--green-100)">
+            <p style="font-size:.9rem;margin-bottom:.85rem">Preferisci parlarne a voce?</p>
+            <a href="#" class="btn btn-outline-kokedama btn-sm btn-block"><i class="fas fa-phone"></i> 0532 242503</a>
+            <a href="#" class="btn btn-ghost btn-sm btn-block mt-2"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h4>Kokedama &amp; Sculture Naturali</h4>
+      <p>Arte botanica e sculture vegetali a Ferrara. Ogni creazione è un pezzo unico fatto a mano.</p>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div>
+      <h4>Naviga</h4>
+      <ul class="footer-links">
+        <li><a href="#">Chi siamo</a></li>
+        <li><a href="#">Servizi</a></li>
+        <li><a href="#">Progetti</a></li>
+        <li><a href="#">Galleria</a></li>
+        <li><a href="#">Eventi &amp; workshop</a></li>
+        <li><a href="#">Prenota</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contatti</h4>
+      <p>Piazza della Repubblica 11<br>44121 Ferrara<br><a href="#">0532 242503</a><br><a href="#">anda22@gmail.com</a></p>
+      <p style="margin-top:.75rem"><a href="#" class="link-underline"><i class="fas fa-diamond-turn-right"></i> Come raggiungerci</a></p>
+    </div>
+    <div>
+      <h4>Orari</h4>
+      <ul class="footer-links" style="gap:.35rem">
+        <li style="display:flex;justify-content:space-between;gap:1rem"><span>Lunedì</span><span style="opacity:.75">Chiuso</span></li>
+        <li style="display:flex;justify-content:space-between;gap:1rem"><span>Mar - Ven</span><span style="opacity:.75">9:30 - 19:30</span></li>
+        <li style="display:flex;justify-content:space-between;gap:1rem"><span>Sabato</span><span style="opacity:.75">9:30 - 19:30</span></li>
+        <li style="display:flex;justify-content:space-between;gap:1rem"><span>Domenica</span><span style="opacity:.75">Su appuntamento</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Kokedama &amp; Sculture Naturali — Ferrara</p>
+    <nav>
+      <a href="#">Privacy &amp; Cookie</a>
+      <a href="#">Contatti</a>
+      <a href="#">Area riservata</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="mobile-bar">
+  <a href="#"><i class="fas fa-phone"></i>Chiama</a>
+  <a href="#"><i class="fab fa-whatsapp"></i>WhatsApp</a>
+  <a href="#"><i class="fas fa-location-dot"></i>Mappa</a>
+  <a href="#" class="primary"><i class="fas fa-calendar-check"></i>Prenota</a>
+</div>
+
+<div class="fab-stack">
+  <a href="#" class="fab fab-whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <button class="fab fab-top show" aria-label="Torna su"><i class="fas fa-arrow-up"></i></button>
+</div>
+
+<script>
+// Stesso comportamento del sito reale (app/templates/footer.php),
+// così l'anteprima permette di provare il menu su smartphone.
+(function () {
+  var toggle = document.getElementById('navToggle');
+  var drawer = document.getElementById('mobileDrawer');
+  if (!toggle || !drawer) return;
+  toggle.addEventListener('click', function () {
+    var open = document.body.classList.toggle('menu-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  drawer.addEventListener('click', function (ev) {
+    if (ev.target.closest('a')) document.body.classList.remove('menu-open');
+  });
+})();
+</script>
+
+</body>
+</html>

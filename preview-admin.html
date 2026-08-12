@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anteprima pannello di gestione — Kokedama</title>
+
+<!--
+  Anteprima statica del pannello di gestione.
+  Carica direttamente app/assets/css/admin.css.
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="app/assets/css/admin.css">
+</head>
+<body>
+<div class="admin-shell">
+
+  <aside class="sidebar">
+    <a href="#" class="sidebar-brand">
+      <span class="mark"><i class="fas fa-leaf"></i></span>
+      <span><strong>Kokedama</strong><small>Gestione sito</small></span>
+    </a>
+    <div>
+      <div class="sidebar-label">Contenuti</div>
+      <nav>
+        <a href="#" class="active"><i class="fas fa-gauge-high"></i><span>Riepilogo</span></a>
+        <a href="#"><i class="fas fa-calendar-check"></i><span>Prenotazioni</span><span class="count">3</span></a>
+        <a href="#"><i class="fas fa-envelope"></i><span>Messaggi</span><span class="count">2</span></a>
+      </nav>
+    </div>
+    <div>
+      <div class="sidebar-label">Sito</div>
+      <nav>
+        <a href="#"><i class="fas fa-spa"></i><span>Servizi</span></a>
+        <a href="#"><i class="fas fa-calendar-day"></i><span>Eventi &amp; workshop</span></a>
+        <a href="#"><i class="fas fa-seedling"></i><span>Progetti</span></a>
+        <a href="#"><i class="fas fa-images"></i><span>Galleria foto</span></a>
+      </nav>
+    </div>
+    <div>
+      <div class="sidebar-label">Configurazione</div>
+      <nav><a href="#"><i class="fas fa-sliders"></i><span>Impostazioni</span></a></nav>
+    </div>
+    <div class="sidebar-foot">
+      <a href="#"><i class="fas fa-arrow-up-right-from-square"></i> Vedi il sito</a>
+      <a href="#"><i class="fas fa-right-from-bracket"></i> Esci</a>
+    </div>
+  </aside>
+
+  <div class="admin-main">
+    <header class="admin-topbar">
+      <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
+      <h1>Riepilogo</h1>
+      <div class="spacer"></div>
+      <a href="preview.html" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Torna all'anteprima sito</a>
+    </header>
+
+    <div class="admin-content">
+
+      <div class="stats">
+        <a href="#" class="stat-card alert">
+          <span class="icon"><i class="fas fa-calendar-check"></i></span>
+          <span><span class="number">3</span><span class="label">Prenotazioni da gestire</span></span>
+        </a>
+        <a href="#" class="stat-card alert">
+          <span class="icon"><i class="fas fa-envelope"></i></span>
+          <span><span class="number">2</span><span class="label">Messaggi non letti</span></span>
+        </a>
+        <a href="#" class="stat-card">
+          <span class="icon"><i class="fas fa-calendar-day"></i></span>
+          <span><span class="number">3</span><span class="label">Eventi in programma</span></span>
+        </a>
+        <a href="#" class="stat-card">
+          <span class="icon"><i class="fas fa-spa"></i></span>
+          <span><span class="number">4</span><span class="label">Servizi pubblicati</span></span>
+        </a>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h2><i class="fas fa-wand-magic-sparkles" style="color:var(--a-clay)"></i> Per migliorare il sito</h2>
+        </div>
+        <div class="panel-body">
+          <p class="text-muted mb-3">Piccoli passi che fanno una grande differenza su chi visita il sito.</p>
+          <a href="#" class="d-flex align-center gap-3" style="padding:.85rem 0;border-top:1px solid var(--a-line-soft);color:inherit">
+            <i class="fas fa-circle-arrow-right" style="color:var(--a-green)"></i>
+            <span><strong style="color:var(--a-ink)">Carica almeno 6 foto in galleria</strong>
+              <small class="text-muted" style="display:block">Le immagini sono ciò che convince chi non ti conosce.</small></span>
+          </a>
+          <a href="#" class="d-flex align-center gap-3" style="padding:.85rem 0;border-top:1px solid var(--a-line-soft);color:inherit">
+            <i class="fas fa-circle-arrow-right" style="color:var(--a-green)"></i>
+            <span><strong style="color:var(--a-ink)">Aggiungi il numero WhatsApp</strong>
+              <small class="text-muted" style="display:block">Attiva il pulsante verde: è il canale più usato dai clienti.</small></span>
+          </a>
+          <a href="#" class="d-flex align-center gap-3" style="padding:.85rem 0;border-top:1px solid var(--a-line-soft);color:inherit">
+            <i class="fas fa-circle-arrow-right" style="color:var(--a-green)"></i>
+            <span><strong style="color:var(--a-ink)">Scegli la foto principale della home</strong>
+              <small class="text-muted" style="display:block">Al momento la home mostra un segnaposto grafico.</small></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="toolbar">
+          <a href="#" class="chip-filter active">Da gestire (3)</a>
+          <a href="#" class="chip-filter">Confermate (12)</a>
+          <a href="#" class="chip-filter">Completate (34)</a>
+          <a href="#" class="chip-filter">Rifiutate (1)</a>
+          <a href="#" class="chip-filter">Tutte (52)</a>
+        </div>
+        <div class="bulk-bar show">
+          <strong>2 selezionate</strong>
+          <label class="form-check" style="margin-left:.5rem"><input type="checkbox"><span>Non inviare email al cliente</span></label>
+          <div class="spacer"></div>
+          <button class="btn btn-sm btn-success"><i class="fas fa-check"></i> Conferma</button>
+          <button class="btn btn-sm btn-danger"><i class="fas fa-xmark"></i> Rifiuta</button>
+          <button class="btn btn-sm btn-info"><i class="fas fa-flag-checkered"></i> Completata</button>
+          <button class="btn btn-sm btn-outline"><i class="fas fa-ban"></i> Annulla</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:36px"><input type="checkbox"></th>
+                <th>Cliente</th><th>Richiesta</th><th>Quando</th>
+                <th class="hide-sm">Persone</th><th>Stato</th><th class="hide-sm">Ricevuta</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-unread">
+                <td><input type="checkbox" checked></td>
+                <td><span class="title">Giulia Rossi</span><small>giulia.rossi@example.com · 333 1234567</small></td>
+                <td>Workshop kokedama base<small><i class="fas fa-note-sticky"></i> È un regalo per mia sorella</small></td>
+                <td class="nowrap"><span class="title">30/08/2026</span><small>15:00</small></td>
+                <td class="hide-sm">2</td>
+                <td><span class="pill pill-pending">In attesa</span></td>
+                <td class="hide-sm nowrap"><small>12/08/2026</small></td>
+              </tr>
+              <tr class="row-unread">
+                <td><input type="checkbox" checked></td>
+                <td><span class="title">Marco Bianchi</span><small>m.bianchi@example.com</small></td>
+                <td>Kokedama classica</td>
+                <td class="nowrap"><span class="title">02/09/2026</span><small>10:30</small></td>
+                <td class="hide-sm">1</td>
+                <td><span class="pill pill-pending">In attesa</span></td>
+                <td class="hide-sm nowrap"><small>11/08/2026</small></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><span class="title">Alice Ferrari</span><small>alice.f@example.com · 340 9876543</small></td>
+                <td>Kokedama e aperitivo</td>
+                <td class="nowrap"><span class="title">05/09/2026</span><small>18:30</small></td>
+                <td class="hide-sm">4</td>
+                <td><span class="pill pill-confirmed">Confermata</span></td>
+                <td class="hide-sm nowrap"><small>09/08/2026</small></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><span class="title">Chiara Neri</span><small>chiara@example.com</small></td>
+                <td>Composizione personalizzata</td>
+                <td class="nowrap"><span class="title">28/07/2026</span><small>16:00</small></td>
+                <td class="hide-sm">1</td>
+                <td><span class="pill pill-completed">Completata</span></td>
+                <td class="hide-sm nowrap"><small>20/07/2026</small></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <details class="detail" open>
+          <summary>
+            <i class="fas fa-note-sticky text-muted"></i>
+            <strong>Giulia Rossi</strong>
+            <span class="text-muted">— 30/08/2026</span>
+            <span class="pill pill-off">ha lasciato una nota</span>
+          </summary>
+          <div class="detail-body">
+            <dl class="detail-grid">
+              <div><dt>Richiesta</dt><dd>Workshop kokedama base</dd></div>
+              <div><dt>Quando</dt><dd>Sabato 30 agosto 2026 · 15:00</dd></div>
+              <div><dt>Partecipanti</dt><dd>2</dd></div>
+              <div><dt>Email</dt><dd><a href="#">giulia.rossi@example.com</a></dd></div>
+              <div><dt>Telefono</dt><dd><a href="#">333 1234567</a></dd></div>
+              <div><dt>Ricevuta il</dt><dd>12/08/2026</dd></div>
+            </dl>
+            <p class="text-muted mt-3" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.08em">Note del cliente</p>
+            <div class="quote">È un regalo per mia sorella, se possibile vorremmo due postazioni vicine. Grazie!</div>
+            <div class="mt-3">
+              <label class="form-label">Nota interna (non visibile al cliente)</label>
+              <textarea class="form-control" rows="2">Preparare due kit con pianta grande.</textarea>
+              <button class="btn btn-sm btn-outline mt-2"><i class="fas fa-floppy-disk"></i> Salva nota</button>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Eventi &amp; workshop</h2>
+          <div class="spacer"></div>
+          <a href="#" class="btn btn-primary"><i class="fas fa-plus"></i> Nuovo evento</a>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th style="width:36px"><input type="checkbox"></th><th>Evento</th><th>Quando</th><th class="hide-sm">Tipo</th><th class="hide-sm">Posti</th><th class="hide-sm">Prezzo</th><th>Stato</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><div class="cell-media"><span class="thumb-empty"><i class="fas fa-calendar-day"></i></span>
+                  <div><span class="title">Workshop kokedama base</span></div></div></td>
+                <td class="nowrap"><span class="title">30/08/2026</span><small>15:00</small></td>
+                <td class="hide-sm"><span class="pill pill-off">Workshop</span></td>
+                <td class="hide-sm"><strong style="color:#B8860B">2</strong> <span class="text-muted">liberi su 8</span></td>
+                <td class="hide-sm">€ 55</td>
+                <td><span class="pill pill-on"><i class="fas fa-eye"></i> Online</span></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><div class="cell-media"><span class="thumb-empty"><i class="fas fa-calendar-day"></i></span>
+                  <div><span class="title">Kokedama e aperitivo</span></div></div></td>
+                <td class="nowrap"><span class="title">05/09/2026</span><small>18:30</small></td>
+                <td class="hide-sm"><span class="pill pill-off">Evento</span></td>
+                <td class="hide-sm"><strong style="color:#2E7D46">8</strong> <span class="text-muted">liberi su 12</span></td>
+                <td class="hide-sm">€ 45</td>
+                <td><span class="pill pill-on"><i class="fas fa-eye"></i> Online</span></td>
+              </tr>
+              <tr class="row-muted">
+                <td><input type="checkbox"></td>
+                <td><div class="cell-media"><span class="thumb-empty"><i class="fas fa-calendar-day"></i></span>
+                  <div><span class="title">Corso avanzato terrari</span></div></div></td>
+                <td class="nowrap"><span class="title">20/09/2026</span><small>16:00</small></td>
+                <td class="hide-sm"><span class="pill pill-off">Corso</span></td>
+                <td class="hide-sm"><strong style="color:#2E7D46">6</strong> <span class="text-muted">liberi su 6</span></td>
+                <td class="hide-sm">€ 90</td>
+                <td><span class="pill pill-off"><i class="fas fa-eye-slash"></i> Bozza</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><h2>Nuovo evento</h2></div>
+        <div class="panel-body">
+          <div class="form-grid">
+            <div class="form-group full">
+              <label class="form-label">Titolo <span class="req">*</span></label>
+              <input class="form-control" value="Workshop kokedama base">
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Descrizione</label>
+              <textarea class="form-control" rows="4">Un pomeriggio per imparare la tecnica della kokedama partendo da zero.</textarea>
+              <p class="form-hint">Racconta cosa si fa, a chi è adatto e cosa si porta a casa.</p>
+            </div>
+            <div class="form-group full">
+              <label class="form-label">Foto dell'evento</label>
+              <div class="image-field">
+                <div class="image-preview"><i class="fas fa-calendar-day"></i></div>
+                <div class="image-field-controls">
+                  <input type="file" class="form-control">
+                  <p class="form-hint">JPG, PNG, GIF o WEBP · massimo 6 MB. Formato consigliato: orizzontale 4:3.</p>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="form-section-title">Data e luogo</h3>
+            <div class="form-group"><label class="form-label">Data <span class="req">*</span></label><input type="date" class="form-control"></div>
+            <div class="form-group"><label class="form-label">Tipo</label><select class="form-control"><option>Workshop</option><option>Evento</option><option>Corso</option></select></div>
+            <div class="form-group"><label class="form-label">Orario di inizio</label><input type="time" class="form-control"></div>
+            <div class="form-group"><label class="form-label">Orario di fine</label><input type="time" class="form-control"></div>
+            <div class="form-group full">
+              <label class="form-label">Luogo</label>
+              <input class="form-control" placeholder="Piazza della Repubblica 11, Ferrara">
+              <p class="form-hint">Se lasci vuoto, non viene mostrato nulla nella scheda.</p>
+            </div>
+
+            <h3 class="form-section-title">Posti, prezzo e visibilità</h3>
+            <div class="form-group">
+              <label class="form-label">Posti disponibili</label><input type="number" class="form-control" value="8">
+              <p class="form-hint">Il sito calcola da solo i posti rimasti e avvisa quando stanno finendo.</p>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Prezzo a persona (€)</label><input type="number" class="form-control" value="55">
+              <p class="form-hint">Lascia vuoto per «Su richiesta».</p>
+            </div>
+            <div class="form-group"><label class="form-check"><input type="checkbox"><span>Mostra in home page</span></label></div>
+            <div class="form-group"><label class="form-check"><input type="checkbox" checked><span>Visibile nel sito</span></label></div>
+          </div>
+          <div class="btn-row">
+            <button class="btn btn-primary btn-lg"><i class="fas fa-floppy-disk"></i> Salva</button>
+            <button class="btn btn-outline btn-lg">Annulla</button>
+            <div style="margin-left:auto"></div>
+            <button class="btn btn-danger"><i class="fas fa-trash"></i> Elimina</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

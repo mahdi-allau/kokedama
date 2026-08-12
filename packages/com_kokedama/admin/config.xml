@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<fieldset name="basic" label="COM_KOKEDAMA_CONFIG_BUSINESS_LABEL">
+		<field name="business_name" type="text" default="Kokedama &amp; Sculture Naturali" label="COM_KOKEDAMA_CONFIG_BUSINESS_NAME" />
+		<field name="business_address" type="textarea" rows="3" default="Piazza della Repubblica 11" label="COM_KOKEDAMA_CONFIG_BUSINESS_ADDRESS" />
+		<field name="business_city" type="text" default="Ferrara" label="COM_KOKEDAMA_CONFIG_BUSINESS_CITY" />
+		<field name="business_zip" type="text" default="44121" label="COM_KOKEDAMA_CONFIG_BUSINESS_ZIP" />
+		<field name="business_phone" type="text" default="0532 242503" label="COM_KOKEDAMA_CONFIG_BUSINESS_PHONE" />
+		<field name="business_email" type="email" default="anda22@gmail.com" label="COM_KOKEDAMA_CONFIG_BUSINESS_EMAIL" />
+		<field name="business_facebook" type="url" default="https://www.facebook.com/kokedamasculturenaturali/" label="COM_KOKEDAMA_CONFIG_FACEBOOK" />
+		<field name="business_instagram" type="url" default="" label="COM_KOKEDAMA_CONFIG_INSTAGRAM" />
+		<field name="business_maps_embed" type="textarea" rows="4" label="COM_KOKEDAMA_CONFIG_MAPS_EMBED" description="COM_KOKEDAMA_CONFIG_MAPS_EMBED_DESC" />
+	</fieldset>
+	<fieldset name="booking" label="COM_KOKEDAMA_CONFIG_BOOKING_LABEL">
+		<field name="booking_email_to" type="email" default="anda22@gmail.com" label="COM_KOKEDAMA_CONFIG_BOOKING_EMAIL" />
+		<field name="booking_email_from" type="email" default="" label="COM_KOKEDAMA_CONFIG_BOOKING_FROM" description="COM_KOKEDAMA_CONFIG_BOOKING_FROM_DESC" />
+		<field name="booking_subject_admin" type="text" default="Nuova prenotazione ricevuta" label="COM_KOKEDAMA_CONFIG_BOOKING_SUBJECT_ADMIN" />
+		<field name="booking_subject_customer" type="text" default="Conferma ricezione prenotazione" label="COM_KOKEDAMA_CONFIG_BOOKING_SUBJECT_CUSTOMER" />
+		<field name="booking_auto_confirm" type="radio" default="0" label="COM_KOKEDAMA_CONFIG_AUTO_CONFIRM" class="btn-group btn-group-yesno">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="booking_max_participants" type="number" default="10" min="1" max="100" label="COM_KOKEDAMA_CONFIG_MAX_PARTICIPANTS" />
+		<field name="booking_lead_time_days" type="number" default="2" min="0" max="30" label="COM_KOKEDAMA_CONFIG_LEAD_TIME" description="COM_KOKEDAMA_CONFIG_LEAD_TIME_DESC" />
+	</fieldset>
+	<fieldset name="contact" label="COM_KOKEDAMA_CONFIG_CONTACT_LABEL">
+		<field name="contact_email_to" type="email" default="anda22@gmail.com" label="COM_KOKEDAMA_CONFIG_CONTACT_EMAIL" />
+		<field name="contact_subject" type="text" default="Nuovo messaggio dal sito" label="COM_KOKEDAMA_CONFIG_CONTACT_SUBJECT" />
+	</fieldset>
+	<fieldset name="seo" label="COM_KOKEDAMA_CONFIG_SEO_LABEL">
+		<field name="meta_title_default" type="text" default="Kokedama &amp; Sculture Naturali - Ferrara" label="COM_KOKEDAMA_CONFIG_META_TITLE" />
+		<field name="meta_desc_default" type="textarea" rows="2" default="Sculture naturali e kokedama a Ferrara. Laboratori, eventi e creazioni artigianali uniche." label="COM_KOKEDAMA_CONFIG_META_DESC" />
+		<field name="og_image_default" type="media" label="COM_KOKEDAMA_CONFIG_OG_IMAGE" />
+	</fieldset>
+	<fieldset name="gdpr" label="COM_KOKEDAMA_CONFIG_GDPR_LABEL">
+		<field name="gdpr_privacy_article" type="modal_article" label="COM_KOKEDAMA_CONFIG_PRIVACY_ARTICLE" description="COM_KOKEDAMA_CONFIG_PRIVACY_ARTICLE_DESC" />
+		<field name="gdpr_consent_text" type="textarea" rows="3" default="Ho letto e accetto l'informativa sulla privacy e il trattamento dei miei dati personali." label="COM_KOKEDAMA_CONFIG_CONSENT_TEXT" />
+	</fieldset>
+</config>

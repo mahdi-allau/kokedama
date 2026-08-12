@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="template" version="4.0" client="site">
+	<name>kokedama</name>
+	<creationDate>August 2026</creationDate>
+	<author>Kokedama Sculture Naturali</author>
+	<authorEmail>anda22@gmail.com</authorEmail>
+	<copyright>Copyright (C) 2026 Kokedama Sculture Naturali</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<version>1.0.0</version>
+	<description>TPL_KOKEDAMA_XML_DESCRIPTION</description>
+	<files>
+		<filename>index.php</filename>
+		<filename>error.php</filename>
+		<filename>offline.php</filename>
+		<filename>component.php</filename>
+		<filename>templateDetails.xml</filename>
+		<folder>css</folder>
+		<folder>js</folder>
+		<folder>images</folder>
+		<folder>html</folder>
+		<folder>language</folder>
+	</files>
+	<positions>
+		<position>menu</position>
+		<position>hero</position>
+		<position>top</position>
+		<position>main-top</position>
+		<position>main-bottom</position>
+		<position>sidebar-left</position>
+		<position>sidebar-right</position>
+		<position>footer</position>
+		<position>copyright</position>
+		<position>offcanvas</position>
+	</positions>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="logo" type="media" label="TPL_KOKEDAMA_LOGO" />
+				<field name="logo_text" type="text" default="Kokedama" label="TPL_KOKEDAMA_LOGO_TEXT" />
+				<field name="show_brand" type="radio" default="1" label="TPL_KOKEDAMA_SHOW_BRAND" class="btn-group btn-group-yesno">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

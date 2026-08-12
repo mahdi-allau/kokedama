@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="package" version="4.0" method="upgrade">
+	<name>Kokedama Sculture Naturali — Pacchetto Completo</name>
+	<author>Kokedama Sculture Naturali</author>
+	<authorEmail>anda22@gmail.com</authorEmail>
+	<authorUrl>https://www.kokedamasculturenaturali.it</authorUrl>
+	<creationDate>August 2026</creationDate>
+	<packagename>kokedama</packagename>
+	<version>1.0.0</version>
+	<copyright>Copyright (C) 2026 Kokedama Sculture Naturali. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<url>https://www.kokedamasculturenaturali.it</url>
+	<packager>Kokedama Sculture Naturali</packager>
+	<packagerurl>https://www.kokedamasculturenaturali.it</packagerurl>
+	<description><![CDATA[
+		<h2>Kokedama Sculture Naturali — Sito Web Completo</h2>
+		<p>Pacchetto di installazione completo per il sito web di Kokedama & Sculture Naturali, Ferrara.</p>
+		<p>Include: componente gestionale, template frontend, plugin sistema, moduli homepage.</p>
+	]]></description>
+	<blockChildUninstall>true</blockChildUninstall>
+	<files folder="packages">
+		<file type="component" id="com_kokedama">com_kokedama.zip</file>
+		<file type="template" id="kokedama" client="site">tpl_kokedama.zip</file>
+		<file type="plugin" id="kokedama" group="system">plg_system_kokedama.zip</file>
+		<file type="module" id="mod_kokedama_services" client="site">mod_kokedama_services.zip</file>
+		<file type="module" id="mod_kokedama_events" client="site">mod_kokedama_events.zip</file>
+	</files>
+</extension>

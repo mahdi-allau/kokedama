@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade">
+	<name>System - Kokedama</name>
+	<author>Kokedama Sculture Naturali</author>
+	<creationDate>August 2026</creationDate>
+	<copyright>Copyright (C) 2026 Kokedama Sculture Naturali</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<version>1.0.0</version>
+	<description>Plugin di sistema per Kokedama — SEO meta dinamici, notifiche e integrazioni.</description>
+	<files>
+		<filename plugin="kokedama">kokedama.php</filename>
+	</files>
+</extension>

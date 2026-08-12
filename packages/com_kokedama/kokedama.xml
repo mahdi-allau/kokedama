@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" method="upgrade">
+	<name>COM_KOKEDAMA</name>
+	<author>Kokedama Sculture Naturali</author>
+	<authorEmail>anda22@gmail.com</authorEmail>
+	<authorUrl>https://www.kokedamasculturenaturali.it</authorUrl>
+	<creationDate>August 2026</creationDate>
+	<copyright>Copyright (C) 2026 Kokedama Sculture Naturali. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<version>1.0.0</version>
+	<description>COM_KOKEDAMA_XML_DESCRIPTION</description>
+	<namespace path="src">Kokedama\Component\Kokedama</namespace>
+
+	<scriptfile>script.php</scriptfile>
+
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+
+	<files folder="site">
+		<folder>controllers</folder>
+		<folder>helpers</folder>
+		<folder>models</folder>
+		<folder>views</folder>
+		<filename>kokedama.php</filename>
+		<filename>controller.php</filename>
+	</files>
+
+	<languages folder="site/language">
+		<language tag="it-IT">it-IT/it-IT.com_kokedama.ini</language>
+	</languages>
+
+	<administration>
+		<menu link="index.php?option=com_kokedama" img="class:leaf">COM_KOKEDAMA</menu>
+		<submenu>
+			<menu link="option=com_kokedama&amp;view=dashboard" view="dashboard" img="class:dashboard">COM_KOKEDAMA_MENU_DASHBOARD</menu>
+			<menu link="option=com_kokedama&amp;view=services" view="services" img="class:star">COM_KOKEDAMA_MENU_SERVICES</menu>
+			<menu link="option=com_kokedama&amp;view=projects" view="projects" img="class:pictures">COM_KOKEDAMA_MENU_PROJECTS</menu>
+			<menu link="option=com_kokedama&amp;view=galleries" view="galleries" img="class:image">COM_KOKEDAMA_MENU_GALLERY</menu>
+			<menu link="option=com_kokedama&amp;view=events" view="events" img="class:calendar">COM_KOKEDAMA_MENU_EVENTS</menu>
+			<menu link="option=com_kokedama&amp;view=bookings" view="bookings" img="class:bookmark">COM_KOKEDAMA_MENU_BOOKINGS</menu>
+			<menu link="option=com_kokedama&amp;view=messages" view="messages" img="class:envelope">COM_KOKEDAMA_MENU_MESSAGES</menu>
+		</submenu>
+
+		<files folder="admin">
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>models/forms</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+			<filename>kokedama.php</filename>
+			<filename>controller.php</filename>
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+		</files>
+
+		<languages folder="admin/language">
+			<language tag="it-IT">it-IT/it-IT.com_kokedama.ini</language>
+			<language tag="it-IT">it-IT/it-IT.com_kokedama.sys.ini</language>
+		</languages>
+	</administration>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic" label="COM_KOKEDAMA_CONFIG_BUSINESS_LABEL">
+				<field name="business_name" type="text" default="Kokedama &amp; Sculture Naturali" label="COM_KOKEDAMA_CONFIG_BUSINESS_NAME" />
+				<field name="business_address" type="textarea" rows="3" default="Piazza della Repubblica 11" label="COM_KOKEDAMA_CONFIG_BUSINESS_ADDRESS" />
+				<field name="business_city" type="text" default="Ferrara" label="COM_KOKEDAMA_CONFIG_BUSINESS_CITY" />
+				<field name="business_zip" type="text" default="44121" label="COM_KOKEDAMA_CONFIG_BUSINESS_ZIP" />
+				<field name="business_phone" type="text" default="0532 242503" label="COM_KOKEDAMA_CONFIG_BUSINESS_PHONE" />
+				<field name="business_email" type="email" default="anda22@gmail.com" label="COM_KOKEDAMA_CONFIG_BUSINESS_EMAIL" />
+				<field name="business_facebook" type="url" default="https://www.facebook.com/kokedamasculturenaturali/" label="COM_KOKEDAMA_CONFIG_FACEBOOK" />
+				<field name="business_instagram" type="url" default="" label="COM_KOKEDAMA_CONFIG_INSTAGRAM" />
+				<field name="business_maps_embed" type="textarea" rows="4" label="COM_KOKEDAMA_CONFIG_MAPS_EMBED" description="COM_KOKEDAMA_CONFIG_MAPS_EMBED_DESC" />
+			</fieldset>
+			<fieldset name="booking" label="COM_KOKEDAMA_CONFIG_BOOKING_LABEL">
+				<field name="booking_email_to" type="email" default="anda22@gmail.com" label="COM_KOKEDAMA_CONFIG_BOOKING_EMAIL" />
+				<field name="booking_email_from" type="email" default="" label="COM_KOKEDAMA_CONFIG_BOOKING_FROM" description="COM_KOKEDAMA_CONFIG_BOOKING_FROM_DESC" />
+				<field name="booking_subject_admin" type="text" default="Nuova prenotazione ricevuta" label="COM_KOKEDAMA_CONFIG_BOOKING_SUBJECT_ADMIN" />
+				<field name="booking_subject_customer" type="text" default="Conferma ricezione prenotazione" label="COM_KOKEDAMA_CONFIG_BOOKING_SUBJECT_CUSTOMER" />
+				<field name="booking_auto_confirm" type="radio" default="0" label="COM_KOKEDAMA_CONFIG_AUTO_CONFIRM" class="btn-group btn-group-yesno">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="booking_max_participants" type="number" default="10" min="1" max="100" label="COM_KOKEDAMA_CONFIG_MAX_PARTICIPANTS" />
+				<field name="booking_lead_time_days" type="number" default="2" min="0" max="30" label="COM_KOKEDAMA_CONFIG_LEAD_TIME" description="COM_KOKEDAMA_CONFIG_LEAD_TIME_DESC" />
+			</fieldset>
+			<fieldset name="contact" label="COM_KOKEDAMA_CONFIG_CONTACT_LABEL">
+				<field name="contact_email_to" type="email" default="anda22@gmail.com" label="COM_KOKEDAMA_CONFIG_CONTACT_EMAIL" />
+				<field name="contact_subject" type="text" default="Nuovo messaggio dal sito" label="COM_KOKEDAMA_CONFIG_CONTACT_SUBJECT" />
+			</fieldset>
+			<fieldset name="seo" label="COM_KOKEDAMA_CONFIG_SEO_LABEL">
+				<field name="meta_title_default" type="text" default="Kokedama &amp; Sculture Naturali - Ferrara" label="COM_KOKEDAMA_CONFIG_META_TITLE" />
+				<field name="meta_desc_default" type="textarea" rows="2" default="Sculture naturali e kokedama a Ferrara. Laboratori, eventi e creazioni artigianali uniche." label="COM_KOKEDAMA_CONFIG_META_DESC" />
+				<field name="og_image_default" type="media" label="COM_KOKEDAMA_CONFIG_OG_IMAGE" />
+			</fieldset>
+			<fieldset name="gdpr" label="COM_KOKEDAMA_CONFIG_GDPR_LABEL">
+				<field name="gdpr_privacy_article" type="modal_article" label="COM_KOKEDAMA_CONFIG_PRIVACY_ARTICLE" description="COM_KOKEDAMA_CONFIG_PRIVACY_ARTICLE_DESC" />
+				<field name="gdpr_consent_text" type="textarea" rows="3" default="Ho letto e accetto l'informativa sulla privacy e il trattamento dei miei dati personali." label="COM_KOKEDAMA_CONFIG_CONSENT_TEXT" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

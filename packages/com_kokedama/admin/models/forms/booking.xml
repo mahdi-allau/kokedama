@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset name="details" label="COM_KOKEDAMA_BOOKING">
+		<field name="id" type="hidden" />
+		<field name="booking_type" type="list" label="COM_KOKEDAMA_FIELD_BOOKING_TYPE" class="form-select" readonly="true">
+			<option value="servizio">Servizio</option>
+			<option value="evento">Evento</option>
+		</field>
+		<field name="service_id" type="number" label="COM_KOKEDAMA_FIELD_SERVICE" readonly="true" />
+		<field name="event_id" type="number" label="COM_KOKEDAMA_FIELD_EVENT" readonly="true" />
+		<field name="booking_date" type="calendar" label="COM_KOKEDAMA_FIELD_BOOKING_DATE" format="%Y-%m-%d" readonly="true" />
+		<field name="booking_time" type="text" label="COM_KOKEDAMA_FIELD_BOOKING_TIME" readonly="true" />
+		<field name="participants" type="number" label="COM_KOKEDAMA_FIELD_PARTICIPANTS" readonly="true" />
+		<field name="first_name" type="text" label="COM_KOKEDAMA_FIELD_FIRST_NAME" readonly="true" />
+		<field name="last_name" type="text" label="COM_KOKEDAMA_FIELD_LAST_NAME" readonly="true" />
+		<field name="email" type="email" label="COM_KOKEDAMA_FIELD_EMAIL" readonly="true" />
+		<field name="phone" type="text" label="COM_KOKEDAMA_FIELD_PHONE" readonly="true" />
+		<field name="notes" type="textarea" label="COM_KOKEDAMA_FIELD_NOTES" readonly="true" rows="3" />
+		<field name="status" type="list" label="COM_KOKEDAMA_FIELD_STATUS" class="form-select">
+			<option value="pending">In attesa</option>
+			<option value="confirmed">Confermata</option>
+			<option value="rejected">Rifiutata</option>
+			<option value="cancelled">Annullata</option>
+			<option value="completed">Completata</option>
+		</field>
+		<field name="admin_notes" type="textarea" label="COM_KOKEDAMA_FIELD_ADMIN_NOTES" rows="4" />
+		<field name="ip_address" type="text" label="COM_KOKEDAMA_FIELD_IP_ADDRESS" readonly="true" />
+		<field name="consent_gdpr" type="radio" label="COM_KOKEDAMA_FIELD_CONSENT_GDPR" class="btn-group btn-group-yesno" readonly="true">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+	</fieldset>
+</form>

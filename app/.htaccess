@@ -1,0 +1,70 @@
+# =============================================================
+#  Kokedama & Sculture Naturali — configurazione Apache
+# =============================================================
+
+# ---- 1. Protezione dei file riservati -----------------------
+# Senza queste righe il database (con email e telefoni dei clienti)
+# sarebbe scaricabile da chiunque conosca l'indirizzo.
+<FilesMatch "\.(sqlite|sqlite3|db|log|md|ini|json|lock)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# File nascosti (.env, .git, ...)
+<FilesMatch "^\.">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# Niente elenco dei file nelle cartelle senza index
+Options -Indexes
+
+# ---- 2. Instradamento delle pagine --------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Le cartelle interne non sono pagine del sito: si passa sempre dal router
+  RewriteRule ^(includes|templates|pages)/ - [F,L]
+
+  # Tutto ciò che non è un file o una cartella reale passa dal router
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
+
+# ---- 3. Intestazioni di sicurezza ---------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Nessun accesso a fotocamera, microfono e posizione
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# ---- 4. Cache dei file statici ------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css              "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/jpeg            "access plus 30 days"
+  ExpiresByType image/png             "access plus 30 days"
+  ExpiresByType image/webp            "access plus 30 days"
+  ExpiresByType image/svg+xml         "access plus 30 days"
+</IfModule>
+
+# ---- 5. Compressione ----------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>

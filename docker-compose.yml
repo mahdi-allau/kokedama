@@ -1,0 +1,12 @@
+services:
+  kokedama:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      # Persisti il database SQLite e gli upload anche se il container viene ricreato
+      - ./app/database.sqlite:/var/www/html/database.sqlite
+      - ./app/assets/uploads:/var/www/html/assets/uploads
+    environment:
+      - APACHE_RUN_USER=www-data
+      - APACHE_RUN_GROUP=www-data

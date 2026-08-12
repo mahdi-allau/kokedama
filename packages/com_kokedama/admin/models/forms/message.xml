@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset name="details" label="COM_KOKEDAMA_MESSAGE">
+		<field name="id" type="hidden" />
+		<field name="name" type="text" label="COM_KOKEDAMA_FIELD_TITLE" readonly="true" />
+		<field name="email" type="email" label="COM_KOKEDAMA_FIELD_EMAIL" readonly="true" />
+		<field name="phone" type="text" label="COM_KOKEDAMA_FIELD_PHONE" readonly="true" />
+		<field name="subject" type="text" label="COM_KOKEDAMA_FIELD_SUBJECT" readonly="true" />
+		<field name="message" type="textarea" label="COM_KOKEDAMA_FIELD_MESSAGE" readonly="true" rows="6" />
+		<field name="status" type="list" label="COM_KOKEDAMA_FIELD_STATUS" class="form-select">
+			<option value="new">Nuovo</option>
+			<option value="read">Letto</option>
+			<option value="replied">Risposto</option>
+			<option value="archived">Archiviato</option>
+		</field>
+		<field name="ip_address" type="text" label="COM_KOKEDAMA_FIELD_IP_ADDRESS" readonly="true" />
+		<field name="consent_gdpr" type="radio" label="COM_KOKEDAMA_FIELD_CONSENT_GDPR" class="btn-group btn-group-yesno" readonly="true">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="created" type="text" label="COM_KOKEDAMA_FIELD_DATE" readonly="true" />
+	</fieldset>
+</form>

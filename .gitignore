@@ -1,0 +1,35 @@
+# Kokedama — File da ignorare in Git
+
+# Uploads utente (non vanno in Git, si perdono su Render ma possiamo gestirlo)
+/app/assets/uploads/*
+!/app/assets/uploads/.gitkeep
+
+# Database SQLite locale (su Render usiamo quello committed, ma in produzione fai backup!)
+# NOTA: per Render teniamo il DB nel repo, altrimenti il sito parte vuoto.
+# Se vuoi ignorarlo, decommenta la riga sotto:
+# /app/database.sqlite
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# Node (se mai usato)
+node_modules/
+
+# Build artifacts
+*.zip

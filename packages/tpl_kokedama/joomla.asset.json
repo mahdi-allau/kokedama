@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "kokedama",
+  "version": "1.0.0",
+  "description": "Kokedama Template Assets",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "template.kokedama",
+      "description": "Main template CSS",
+      "type": "style",
+      "uri": "template.css",
+      "dependencies": ["fontawesome"]
+    },
+    {
+      "name": "template.kokedama",
+      "description": "Main template JS",
+      "type": "script",
+      "uri": "template.js",
+      "dependencies": ["bootstrap.dropdown", "bootstrap.collapse"],
+      "attributes": {
+        "defer": true
+      }
+    }
+  ]
+}
