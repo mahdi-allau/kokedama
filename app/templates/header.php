@@ -4,13 +4,23 @@ require_once __DIR__ . '/../includes/db.php';
 require_once __DIR__ . '/../includes/functions.php';
 initDatabase();
 
-$activePage  = $activePage ?? '';
+/**
+ * ATTENZIONE — le variabili di questo file usano tutte il prefisso "tpl".
+ * Il template viene incluso nel bel mezzo delle pagine, quindi condivide le
+ * loro variabili: un nome generico come $item o $row qui sovrascriverebbe
+ * quello della pagina, svuotando i dati subito sotto (è già successo).
+ */
+
+$activePage   = $activePage ?? '';
+$tplBrandName = getSetting('brand_name', getSetting('business_name', 'Kokedama'));
+$tplBrandSub  = getSetting('brand_subtitle', 'Sculture Naturali');
+$tplBrandLogo = getSetting('brand_logo', '');
 $businessName = getSetting('business_name', 'Kokedama & Sculture Naturali');
-$metaDesc = $metaDescription ?? getSetting('seo_description');
-$wa = whatsappLink();
+$metaDesc     = $metaDescription ?? getSetting('seo_description');
+$tplWa           = whatsappLink();
 
 // Voci di menu: unico punto da modificare per aggiungere una pagina.
-$navItems = [
+$tplNav = [
     'home'     => ['url' => APP_URL . '/',         'label' => 'Home'],
     'about'    => ['url' => APP_URL . '/about',    'label' => 'Chi siamo'],
     'services' => ['url' => APP_URL . '/services', 'label' => 'Servizi'],
@@ -75,8 +85,8 @@ $navItems = [
   <div class="container">
     <div class="topbar-items">
       <span><i class="fas fa-map-marker-alt"></i> <?php echo e(fullAddress()); ?></span>
-      <?php $oggi = todayHours(); if ($oggi): ?>
-      <span><i class="far fa-clock"></i> Oggi: <?php echo e($oggi['value']); ?></span>
+      <?php $tplToday = todayHours(); if ($tplToday): ?>
+      <span><i class="far fa-clock"></i> Oggi: <?php echo e($tplToday['value']); ?></span>
       <?php endif; ?>
     </div>
     <div class="topbar-items">
@@ -92,16 +102,20 @@ $navItems = [
 <nav class="navbar" id="navbar">
   <div class="container">
     <a href="<?php echo APP_URL; ?>/" class="navbar-brand">
+      <?php if (mediaExists($tplBrandLogo)): ?>
+      <img class="brand-logo" src="<?php echo e(mediaUrl($tplBrandLogo)); ?>" alt="<?php echo e($tplBrandName); ?>">
+      <?php else: ?>
       <span class="brand-mark"><i class="fas fa-leaf" aria-hidden="true"></i></span>
+      <?php endif; ?>
       <span class="brand-text">
-        <span class="brand-name">Kokedama</span>
-        <span class="brand-sub">Sculture Naturali</span>
+        <span class="brand-name"><?php echo e($tplBrandName); ?></span>
+        <?php if ($tplBrandSub !== ''): ?><span class="brand-sub"><?php echo e($tplBrandSub); ?></span><?php endif; ?>
       </span>
     </a>
 
     <ul class="navbar-nav">
-      <?php foreach ($navItems as $key => $item): ?>
-      <li><a href="<?php echo e($item['url']); ?>"<?php echo $activePage === $key ? ' class="active" aria-current="page"' : ''; ?>><?php echo e($item['label']); ?></a></li>
+      <?php foreach ($tplNav as $tplKey => $tplLink): ?>
+      <li><a href="<?php echo e($tplLink['url']); ?>"<?php echo $activePage === $tplKey ? ' class="active" aria-current="page"' : ''; ?>><?php echo e($tplLink['label']); ?></a></li>
       <?php endforeach; ?>
       <li class="nav-cta"><a href="<?php echo APP_URL; ?>/booking" class="btn btn-kokedama btn-sm"><i class="fas fa-calendar-check"></i> Prenota</a></li>
     </ul>
@@ -115,16 +129,16 @@ $navItems = [
 <!-- Menu a tutta pagina per smartphone e tablet -->
 <div class="mobile-drawer" id="mobileDrawer">
   <nav>
-    <?php foreach ($navItems as $key => $item): ?>
-    <a href="<?php echo e($item['url']); ?>"<?php echo $activePage === $key ? ' class="active"' : ''; ?>>
-      <?php echo e($item['label']); ?><i class="fas fa-arrow-right" aria-hidden="true"></i>
+    <?php foreach ($tplNav as $tplKey => $tplLink): ?>
+    <a href="<?php echo e($tplLink['url']); ?>"<?php echo $activePage === $tplKey ? ' class="active"' : ''; ?>>
+      <?php echo e($tplLink['label']); ?><i class="fas fa-arrow-right" aria-hidden="true"></i>
     </a>
     <?php endforeach; ?>
   </nav>
   <div class="drawer-footer">
     <a href="<?php echo APP_URL; ?>/booking" class="btn btn-kokedama btn-lg btn-block"><i class="fas fa-calendar-check"></i> Prenota ora</a>
-    <?php if ($wa): ?>
-    <a href="<?php echo e($wa); ?>" target="_blank" rel="noopener" class="btn btn-ghost btn-block"><i class="fab fa-whatsapp"></i> Scrivici su WhatsApp</a>
+    <?php if ($tplWa): ?>
+    <a href="<?php echo e($tplWa); ?>" target="_blank" rel="noopener" class="btn btn-ghost btn-block"><i class="fab fa-whatsapp"></i> Scrivici su WhatsApp</a>
     <?php endif; ?>
     <div class="drawer-contact">
       <a href="tel:<?php echo e(telHref()); ?>"><i class="fas fa-phone"></i> <?php echo e(getSetting('business_phone')); ?></a>
@@ -133,11 +147,11 @@ $navItems = [
   </div>
 </div>
 
-<?php $flash = takeFlash(); if ($flash): ?>
+<?php $tplFlash = takeFlash(); if ($tplFlash): ?>
 <div class="flash-wrap">
-  <div class="alert alert-<?php echo $flash['type'] === 'success' ? 'success' : 'error'; ?>" role="status">
-    <i class="fas <?php echo $flash['type'] === 'success' ? 'fa-circle-check' : 'fa-circle-exclamation'; ?>"></i>
-    <span><?php echo e($flash['message']); ?></span>
+  <div class="alert alert-<?php echo $tplFlash['type'] === 'success' ? 'success' : 'error'; ?>" role="status">
+    <i class="fas <?php echo $tplFlash['type'] === 'success' ? 'fa-circle-check' : 'fa-circle-exclamation'; ?>"></i>
+    <span><?php echo e($tplFlash['message']); ?></span>
   </div>
 </div>
 <?php endif; ?>

@@ -146,6 +146,11 @@ function initDatabase() {
  */
 function seedSettings($db) {
     $settings = [
+        // Intestazione del sito (logo e nome mostrati in alto a sinistra)
+        'brand_name'         => 'Kokedama',
+        'brand_subtitle'     => 'Sculture Naturali',
+        'brand_logo'         => '',
+
         // Dati attività
         'business_name'      => 'Kokedama & Sculture Naturali',
         'business_tagline'   => 'Arte botanica e sculture vegetali a Ferrara',

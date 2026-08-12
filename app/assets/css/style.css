@@ -370,6 +370,15 @@ a:hover { color: var(--green-800); }
   box-shadow: 0 4px 12px rgba(63,98,71,.25);
 }
 
+/* Logo caricato dal pannello: sostituisce il segno grafico predefinito */
+.brand-logo {
+  height: 46px;
+  width: auto;
+  max-width: 190px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
 .brand-name {
   font-family: 'Playfair Display', serif;
@@ -1367,9 +1376,35 @@ textarea.form-control { resize: vertical; min-height: 130px; line-height: 1.65; 
 }
 .social-links a:hover { background: var(--green-600); border-color: var(--green-600); transform: translateY(-3px); }
 
-/* Sul chiaro (pagina contatti) */
-.contact-info .social-links a { background: var(--green-050); border-color: var(--line); color: var(--green-700); }
-.contact-info .social-links a:hover { background: var(--green-600); color: #fff; }
+/**
+ * Sui fondi chiari le icone social vanno ricolorate: la regola base sopra è
+ * pensata per il footer scuro (icona bianca) e su una scheda bianca
+ * risulterebbe invisibile — un cerchio vuoto.
+ */
+.contact-info .social-links a,
+.contact-info-card .social-links a,
+.form-card .social-links a,
+.section:not(.bg-green) .social-links a {
+  background: var(--green-050);
+  border-color: var(--green-100);
+  color: var(--green-700);
+}
+.contact-info .social-links a:hover,
+.contact-info-card .social-links a:hover,
+.form-card .social-links a:hover,
+.section:not(.bg-green) .social-links a:hover {
+  background: var(--green-600);
+  border-color: var(--green-600);
+  color: #fff;
+}
+
+/* Il footer resta scuro anche se sta dentro una sezione chiara */
+.footer .social-links a {
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.1);
+  color: #fff;
+}
+.footer .social-links a:hover { background: var(--green-600); border-color: var(--green-600); color: #fff; }
 
 /* ==========================================================================
    16. ELEMENTI FLUTTUANTI

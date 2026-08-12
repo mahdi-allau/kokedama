@@ -1,17 +1,24 @@
 </main>
 
-<?php $wa = $wa ?? whatsappLink(); $orari = openingHours(); ?>
+<?php
+/**
+ * Come header.php: le variabili qui usano il prefisso "tpl" perché il file
+ * viene incluso dentro le pagine e ne condivide lo spazio dei nomi.
+ */
+$tplWa    = whatsappLink();
+$tplHours = openingHours();
+?>
 
 <footer class="footer">
   <div class="footer-grid">
     <div>
       <h4><?php echo e(getSetting('business_name', 'Kokedama & Sculture Naturali')); ?></h4>
       <p><?php echo e(getSetting('business_tagline', 'Arte botanica e sculture vegetali a Ferrara')); ?>. Ogni creazione è un pezzo unico fatto a mano.</p>
-      <?php if (getSetting('business_facebook') || getSetting('business_instagram') || $wa): ?>
+      <?php if (getSetting('business_facebook') || getSetting('business_instagram') || $tplWa): ?>
       <div class="social-links">
         <?php if (getSetting('business_facebook')): ?><a href="<?php echo e(getSetting('business_facebook')); ?>" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><?php endif; ?>
         <?php if (getSetting('business_instagram')): ?><a href="<?php echo e(getSetting('business_instagram')); ?>" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a><?php endif; ?>
-        <?php if ($wa): ?><a href="<?php echo e($wa); ?>" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a><?php endif; ?>
+        <?php if ($tplWa): ?><a href="<?php echo e($tplWa); ?>" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a><?php endif; ?>
       </div>
       <?php endif; ?>
     </div>
@@ -39,14 +46,14 @@
       <p style="margin-top:.75rem"><a href="<?php echo e(mapsDirectionsUrl()); ?>" target="_blank" rel="noopener" class="link-underline"><i class="fas fa-diamond-turn-right"></i> Come raggiungerci</a></p>
     </div>
 
-    <?php if ($orari): ?>
+    <?php if ($tplHours): ?>
     <div>
       <h4>Orari</h4>
       <ul class="footer-links" style="gap:.35rem">
-        <?php foreach ($orari as $row): ?>
+        <?php foreach ($tplHours as $tplRow): ?>
         <li style="display:flex;justify-content:space-between;gap:1rem;">
-          <span><?php echo e($row['label']); ?></span>
-          <span style="opacity:.75;text-align:right;"><?php echo e($row['value']); ?></span>
+          <span><?php echo e($tplRow['label']); ?></span>
+          <span style="opacity:.75;text-align:right;"><?php echo e($tplRow['value']); ?></span>
         </li>
         <?php endforeach; ?>
       </ul>
@@ -67,16 +74,16 @@
 <!-- Barra azioni rapide: solo su smartphone, sempre a portata di pollice -->
 <div class="mobile-bar">
   <a href="tel:<?php echo e(telHref()); ?>"><i class="fas fa-phone"></i>Chiama</a>
-  <?php if ($wa): ?>
-  <a href="<?php echo e($wa); ?>" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i>WhatsApp</a>
+  <?php if ($tplWa): ?>
+  <a href="<?php echo e($tplWa); ?>" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i>WhatsApp</a>
   <?php endif; ?>
   <a href="<?php echo e(mapsDirectionsUrl()); ?>" target="_blank" rel="noopener"><i class="fas fa-location-dot"></i>Mappa</a>
   <a href="<?php echo APP_URL; ?>/booking" class="primary"><i class="fas fa-calendar-check"></i>Prenota</a>
 </div>
 
 <div class="fab-stack">
-  <?php if ($wa): ?>
-  <a href="<?php echo e($wa); ?>" target="_blank" rel="noopener" class="fab fab-whatsapp" aria-label="Scrivici su WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <?php if ($tplWa): ?>
+  <a href="<?php echo e($tplWa); ?>" target="_blank" rel="noopener" class="fab fab-whatsapp" aria-label="Scrivici su WhatsApp"><i class="fab fa-whatsapp"></i></a>
   <?php endif; ?>
   <button class="fab fab-top" id="backToTop" aria-label="Torna su"><i class="fas fa-arrow-up"></i></button>
 </div>

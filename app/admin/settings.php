@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     requireCsrf();
 
     $testi = [
+        'brand_name', 'brand_subtitle',
         'business_name', 'business_tagline', 'business_address', 'business_city', 'business_zip',
         'business_phone', 'business_whatsapp', 'business_email',
         'business_facebook', 'business_instagram', 'business_maps_embed', 'business_hours',
@@ -38,19 +39,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         setSetting($key, trim($_POST[$key] ?? ''));
     }
 
-    // Foto principale della home
-    $current = trim($_POST['home_hero_image_current'] ?? '');
-    if (!empty($_POST['home_hero_image_remove'])) {
-        deleteUpload($current);
-        setSetting('home_hero_image', '');
-    } elseif (!empty($_FILES['home_hero_image']['name'])) {
-        $uploadError = null;
-        $path = uploadImage($_FILES['home_hero_image'], 'site', $uploadError);
-        if ($path === null) {
-            $errors[] = $uploadError ?: 'Immagine non caricata.';
-        } else {
-            if ($current) deleteUpload($current);
-            setSetting('home_hero_image', $path);
+    // Immagini gestite da questa pagina: logo e foto principale della home
+    foreach (['brand_logo', 'home_hero_image'] as $campoImg) {
+        $current = trim($_POST[$campoImg . '_current'] ?? '');
+
+        if (!empty($_POST[$campoImg . '_remove'])) {
+            deleteUpload($current);
+            setSetting($campoImg, '');
+        } elseif (!empty($_FILES[$campoImg]['name'])) {
+            $uploadError = null;
+            $path = uploadImage($_FILES[$campoImg], 'site', $uploadError);
+            if ($path === null) {
+                $errors[] = $uploadError ?: 'Immagine non caricata.';
+            } else {
+                if ($current) deleteUpload($current);
+                setSetting($campoImg, $path);
+            }
         }
     }
 
@@ -64,6 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $heroImage = getSetting('home_hero_image');
+$brandLogo = getSetting('brand_logo');
 $adminAction = '<a href="' . APP_URL . '/" target="_blank" class="btn btn-outline"><i class="fas fa-arrow-up-right-from-square"></i> Vedi il sito</a>';
 
 require __DIR__ . '/_layout.php';
@@ -71,12 +76,64 @@ require __DIR__ . '/_layout.php';
 
 <div class="alert alert-info">
   <i class="fas fa-lightbulb"></i>
-  <span>Tutto quello che scrivi qui compare <strong>subito nel sito</strong>: indirizzo, telefono, orari, testi della home.
+  <span>Tutto quello che scrivi qui compare <strong>subito nel sito</strong>: logo, indirizzo, telefono, orari, testi della home.
         Non serve toccare il codice né chiamare nessuno.</span>
 </div>
 
 <form method="post" enctype="multipart/form-data">
   <?php echo csrfField(); ?>
+
+  <!-- ======================= LOGO E INTESTAZIONE ====================== -->
+  <div class="panel">
+    <div class="panel-head"><h2><i class="fas fa-signature"></i> Logo e intestazione</h2></div>
+    <div class="panel-body">
+      <p class="text-muted mb-4">È quello che si vede in alto a sinistra in ogni pagina del sito.</p>
+
+      <div class="form-group">
+        <label class="form-label">Logo</label>
+        <div class="image-field">
+          <div class="image-preview" id="preview_logo" style="background:#fff">
+            <?php if (mediaExists($brandLogo)): ?>
+              <img src="<?php echo e(mediaUrl($brandLogo)); ?>" alt="Logo attuale" style="object-fit:contain;padding:.5rem">
+            <?php else: ?>
+              <i class="fas fa-leaf"></i>
+            <?php endif; ?>
+          </div>
+          <div class="image-field-controls">
+            <input type="hidden" name="brand_logo_current" value="<?php echo e($brandLogo); ?>">
+            <input type="file" name="brand_logo" class="form-control"
+                   accept="image/jpeg,image/png,image/gif,image/webp" data-image-input="#preview_logo">
+            <p class="form-hint">
+              PNG con sfondo trasparente è la scelta migliore. Viene mostrato alto 46 pixel:
+              carica un'immagine alta almeno 100 pixel perché resti nitida.
+              <strong>Se non carichi nulla</strong>, resta la foglia verde predefinita.
+            </p>
+            <?php if (mediaExists($brandLogo)): ?>
+            <label class="form-check mt-2">
+              <input type="checkbox" name="brand_logo_remove" value="1">
+              <span>Rimuovi il logo e torna alla foglia</span>
+            </label>
+            <?php endif; ?>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label" for="brand_name">Nome accanto al logo</label>
+          <input type="text" name="brand_name" id="brand_name" class="form-control"
+                 value="<?php echo e(getSetting('brand_name')); ?>">
+          <p class="form-hint">Tienilo corto: su smartphone lo spazio è poco.</p>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="brand_subtitle">Sottotitolo</label>
+          <input type="text" name="brand_subtitle" id="brand_subtitle" class="form-control"
+                 value="<?php echo e(getSetting('brand_subtitle')); ?>">
+          <p class="form-hint">La riga piccola sotto il nome. Lascia vuoto per non mostrarla.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ============================ CONTATTI ============================ -->
   <div class="panel">
@@ -130,14 +187,41 @@ require __DIR__ . '/_layout.php';
           </p>
         </div>
 
+        <h3 class="form-section-title">Social</h3>
+
+        <div class="form-group full">
+          <p class="form-hint" style="margin-top:0">
+            Le icone compaiono nella barra in alto, nel footer e nella pagina Contatti.
+            <strong>Un campo vuoto significa icona nascosta</strong>: è per questo che, finché
+            non compili Instagram, si vede solo Facebook.
+          </p>
+        </div>
+
         <div class="form-group">
           <label class="form-label" for="business_facebook">Pagina Facebook</label>
-          <input type="url" name="business_facebook" id="business_facebook" class="form-control" value="<?php echo e(getSetting('business_facebook')); ?>" placeholder="https://facebook.com/…">
+          <input type="url" name="business_facebook" id="business_facebook" class="form-control"
+                 value="<?php echo e(getSetting('business_facebook')); ?>" placeholder="https://www.facebook.com/nomepagina">
+          <p class="form-hint">
+            <?php if (getSetting('business_facebook')): ?>
+              <strong style="color:var(--a-green)">✓ Icona attiva nel sito.</strong>
+            <?php else: ?>
+              Icona nascosta: incolla l'indirizzo della pagina per mostrarla.
+            <?php endif; ?>
+          </p>
         </div>
 
         <div class="form-group">
           <label class="form-label" for="business_instagram">Profilo Instagram</label>
-          <input type="url" name="business_instagram" id="business_instagram" class="form-control" value="<?php echo e(getSetting('business_instagram')); ?>" placeholder="https://instagram.com/…">
+          <input type="url" name="business_instagram" id="business_instagram" class="form-control"
+                 value="<?php echo e(getSetting('business_instagram')); ?>" placeholder="https://www.instagram.com/nomeprofilo">
+          <p class="form-hint">
+            <?php if (getSetting('business_instagram')): ?>
+              <strong style="color:var(--a-green)">✓ Icona attiva nel sito.</strong>
+            <?php else: ?>
+              Icona nascosta: apri il tuo profilo Instagram, copia l'indirizzo dalla barra del
+              browser e incollalo qui.
+            <?php endif; ?>
+          </p>
         </div>
       </div>
     </div>

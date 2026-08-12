@@ -3,7 +3,7 @@
 > **Sito web completo** per l'attività artigianale di kokedama e sculture vegetali di Ferrara.
 > **Scopo del file:** poterlo passare a un altro sviluppatore (o a un'altra AI) e riprendere il lavoro senza dover indovinare nulla.
 
-**Ultimo aggiornamento:** 12 agosto 2026 — *revisione 3: nuovo design, pannello di gestione completo, correzioni di sicurezza.*
+**Ultimo aggiornamento:** 13 agosto 2026 — *revisione 3.1: logo personalizzabile, correzione del bug che svuotava le pagine di dettaglio.*
 
 ---
 
@@ -69,6 +69,20 @@ Il punto di partenza aveva tre problemi che ne impedivano l'uso reale.
 - Freno ai tentativi di accesso ripetuti, rigenerazione dell'ID di sessione, scadenza dopo 8 ore
 - Cookie di sessione `httponly` + `samesite`
 - Intestazioni di sicurezza in `.htaccess`
+
+---
+
+### 2.4 Revisione 3.1 — correzioni dopo la prima messa online
+
+Verificate sul sito pubblicato (`kokedama.onrender.com`), non solo sul codice.
+
+| Problema | Causa | Soluzione |
+|---|---|---|
+| **Nelle pagine di dettaglio (evento, servizio, progetto) sparivano titolo, data, prezzo e luogo** — restavano solo le icone | `templates/header.php` usava `$item` come variabile del ciclo del menu. Essendo incluso *dentro* la pagina, sovrascriveva l'`$item` con l'ultima voce di menu: da lì in poi `$item['event_date']` era vuoto e `$item['id']` valeva 0 (il pulsante "Prenota" puntava a `?event=0`) | Tutte le variabili dei template ora hanno il prefisso `tpl` (vedi § 15) |
+| **Cerchio bianco vuoto** al posto dell'icona Facebook nella scheda Contatti | La regola CSS per i fondi chiari puntava a `.contact-info`, ma la pagina usa `.contact-info-card`: si applicava quindi lo stile del footer, cioè icona **bianca su scheda bianca** | Regola estesa a tutti i contenitori chiari, con il footer isolato |
+| Instagram non compariva da nessuna parte | Il campo `business_instagram` è vuoto: l'icona è mostrata solo se valorizzata (comportamento voluto) | Ora il pannello lo dice esplicitamente e segnala quali icone sono attive |
+
+**Aggiunto:** logo e nome dell'intestazione modificabili dal pannello (Impostazioni → *Logo e intestazione*). Si carica un'immagine e si cambiano nome e sottotitolo; senza logo resta la foglia verde predefinita.
 
 ---
 
@@ -247,6 +261,7 @@ Aggiungere una chiave lì la rende disponibile **anche ai database già esistent
 
 | Gruppo | Chiavi |
 |---|---|
+| Intestazione | `brand_logo`, `brand_name`, `brand_subtitle` |
 | Attività | `business_name`, `business_tagline`, `business_address`, `business_city`, `business_zip`, `business_phone`, `business_whatsapp`, `business_email`, `business_facebook`, `business_instagram`, `business_maps_embed`, `business_hours` |
 | Contenuti | `home_hero_title`, `home_hero_subtitle`, `home_hero_image`, `about_intro` |
 | Prenotazioni | `booking_notice_days`, `booking_intro` |
@@ -353,7 +368,9 @@ In questa cartella convivono **due progetti distinti**:
 
 ## 15. Note per chi mette mano al progetto
 
+- **Nei template usa solo variabili con prefisso `tpl`.** `header.php` e `footer.php` vengono inclusi *dentro* le pagine e ne condividono le variabili: un `$item`, `$row` o `$i` in un ciclo del template cancella silenziosamente quello della pagina. È già successo (§ 2.4) e non produce alcun errore: i dati semplicemente spariscono, il che lo rende difficile da individuare.
 - **Non scrivere i dati dell'attività nel codice**: si modificano da Impostazioni. Per aggiungere un dato nuovo, inseriscilo in `seedSettings()` (`includes/db.php`) e poi in `admin/settings.php`.
+- **Le icone social hanno colori diversi su fondo chiaro e scuro.** Se le usi in un contenitore nuovo, verifica che ricadano nella regola giusta in `style.css` § 15, altrimenti resteranno bianche su bianco.
 - **Ogni valore che arriva dal database va stampato con `e()`.** Unica eccezione consapevole: la mappa, che passa da `mapsEmbedSrc()` e viene ricostruita da noi.
 - **Ogni modulo deve avere `csrfField()`** e, lato server, `requireCsrf()`.
 - **Le immagini si stampano con `renderMedia()`**, mai con un `<img>` scritto a mano: gestisce il caso "foto non ancora caricata".
